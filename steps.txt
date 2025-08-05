@@ -1,0 +1,20 @@
+steps:
+1-start-dfs.sh
+2-start-yarn.sh
+3-jps
+4-hdfs namenode -format
+5-hadoop-daemon.sh start namenode
+6-jps
+7-cat centroids.txt
+8-hdfs dfs -put centroids.txt /
+9-hdfs dfs -ls /
+10-hdfs dfs -mkdir /inputKMeans
+11-hdfs dfs -put iris.data /inputKMeans/
+12-hadoop jar /home/reem/eclipse-workspace/KMeans.jar KMeansDriver /inputKMeans/iris.data /outputKMeans39 10 0.01 
+13- hdfs dfs -cat /outputKMeans410/part-r-00000
+14-hdfs dfs -cat /final_centroids.txt
+
+
+
+
+
