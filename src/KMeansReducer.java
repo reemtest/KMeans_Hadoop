@@ -34,7 +34,7 @@ public class KMeansReducer extends Reducer<IntWritable, Text, IntWritable, Text>
         // Convert array to string
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < sum.length; i++) {
-            sb.append(sum[i]);
+        	sb.append(String.format("%.4f", sum[i]));
             if (i < sum.length - 1) sb.append(",");
         }
 
