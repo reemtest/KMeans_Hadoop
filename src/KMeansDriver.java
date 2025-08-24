@@ -52,6 +52,8 @@ public class KMeansDriver extends Configured implements Tool {
 
     
 	public int run(String[] args) throws Exception {
+		
+		 long startTime = System.currentTimeMillis();
 	    Configuration conf = getConf();
 	    FileSystem fs = FileSystem.get(conf);
 
@@ -143,6 +145,9 @@ public class KMeansDriver extends Configured implements Tool {
 	        fs.delete(finalOutput, true);
 	    }
 	    fs.rename(new Path("/centroids.txt"), finalOutput);
+	    
+	    long endTime = System.currentTimeMillis();  // ⏱️ End timing
+	    System.out.println("Total execution time: " + (endTime - startTime) + " ms");
 
 	    return 0;
 	}
